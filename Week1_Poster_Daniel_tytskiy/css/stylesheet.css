@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "Raving";
+  src: url("../fonts/RAVING.otf") format("opentype");
+  font-display: swap;
+  /*FFont for the title  */
+}
+
+@font-face {
+  font-family: "Electric Kicks"; /*NAme of the font*/
+  src: url("../fonts/ElectricKicks.ttf") format("truetype");
+  font-display: swap;
+  /*Font for the description and details  */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex; /* dispplayes the item */
+  min-height: 100vh;/*sets the minimum height of the body to the full viewport height*/
+  margin: 0;
+  padding: 16px;
+  align-items: center; /* Center the containers items  horizontally and vertically */
+  justify-content: center; /* Center the container horizontally and vertically */
+  background: linear-gradient(to bottom, rgb(125, 11, 219), rgb(102, 8, 121)); /* background linear gradient  to make it look appealing and COool*/
+}
+
+.container {
+  display: flex; /* Displays the container as a flebox */
+  width: 100%; /*width of the container */
+  max-width: 600px;
+  min-width: 0;
+
+  justify-content: center; /*every single container item aligns to center*/
+}
+
+.poster {
+  position: relative; /* Sets the positioning context for child elements iunside the poster */
+  width: 100%;/* withdt of the poster*/
+  max-width: 600px;
+  min-width: 0;
+  aspect-ratio: 3 / 4;/* hight of the poster*/
+  overflow: hidden; /*hides any content that overflows the poster*/
+  border-radius: 20px; /*corner darius of the poster to make it more stylish*/
+  box-shadow: 0 54px 55px rgba(0, 0, 0, 0.25),0 -12px 30px rgba(0, 0, 0, 0.12), 0 4px 6px rgba(0, 0, 0, 0.12), 0 12px 13px rgba(0, 0, 0, 0.17), 0 -3px 5px rgba(0, 0, 0, 0.09);
+  /*link to shadows: https://getcssscan.com/css-box-shadow    shadows number 10*/ 
+}
+
+.poster canvas {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100% ;
+  height: 100%;
+}
+
+.poster::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg,rgba(15, 4, 32, 0.2),rgba(15, 4, 32, 0.08) 50%, rgba(15, 4, 32, 0.35));
+  pointer-events: none;
+}
+
+.poster-content {
+  position: absolute; /*sets positining context for child elements */
+  inset: 0; /*inset is used to set all four edges of an element at once and to make sure it covers the entire poster*/
+  z-index: 2; /* z-index for layering  and to ensure the content is on top */
+  display: flex; /*displays the poster as a flex boxes*/
+  flex-direction: column; /* stes the flex direction as a colum */
+  align-items: center;/* alölignes every single item to the middle*/
+  justify-content: space-around; /* centers the flex items */
+  gap: 12px;
+  padding: 24px;/*padding aka space around the content*/
+  text-align: center; /* alligns the text too the center*/
+  pointer-events: none;
+}
+
+.poster-title {
+  margin: 0; /*margin to create space between the title and the image form the bottom of the title */
+  color: #fff;/*text color*/
+  font-family: "Raving", sans-serif;/*using the downnloaded font*/
+  font-size: 3rem;
+line-height: 1;
+  text-shadow: 0 2px 8px #000;/*SHADOWS of the word in the title */
+}
+
+.poster-image {
+width: 320px;/*Sets the width of the image(LOGO OF THE UNI) to 100% of its container */
+ height: 150px; /* Sets the maximum height of the Logo */
+  object-fit: contain;
+}
+
+.poster-description,
+.poster-details {
+  margin: 0;
+  color: #fff;/*text color*/
+  font-family: "Electric Kicks", sans-serif;/*using the downnloaded font*/
+ font-size: 1.2rem;/*  font size of the title for making it large and eye-catching */
+  line-height: 1.15;
+  text-shadow: 0 1px 6px #000;/*text shadow*/
+}
